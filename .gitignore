@@ -1,8 +1,13 @@
 # Added specifically for this project
+Notebook_for_tests.ipynb
 /Embeddings/Books
 /Embeddings/Saved_Embeddings/glove_lookup
-/Embgeddings/Saved_Variables/*.pkl
-Notebook_for_tests.ipynb
+/Embgeddings/Saved_Variables/closest_emojis_list.pkl
+/Embgeddings/Saved_Variables/improved_dataset.pkl
+/Embgeddings/Saved_Variables/saved_status.pkl
+/Embgeddings/Saved_Variables/saved_status.pkl
+/Embgeddings/Saved_Variables/sub_sentence_list.pkl
+
 .idea/
 .DS_Store
 
