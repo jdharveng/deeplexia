@@ -338,3 +338,28 @@ def df_4_dataset(file, emoji_2_embedding_lookup,emoji_symb2emb_dic,n_words=5,\
     return df
 
 
+def print_samples_cluster(df, label, n_lines=5):
+    '''
+      Prints samples for each of the clusters 
+
+      Parameters:
+          df (DataFrame): DataFrame containing emoji_names, emoji_symbols and K_means labels
+          label (str): the chosen label (for example in our case: labels_K_8 or labels_K_9)
+          n_linles (int): the amount of lines printed per cluster (default = 5)
+
+      Returns:
+          Prints samples for each of the clusters 
+    '''
+       
+    # Some Dataframe formatting for the printing
+    pd.set_option('expand_frame_repr', False)
+    pd.set_option('display.max_columns', 999)
+    
+    n = df[label].nunique()
+    for i in range(n):
+        print("\033[1m" + f'Samples from cluster nb {i} ' + "\033[0m")
+        print(df[df[label]==i][['emoji_names', 'emoji_symbols','labels_K_8']].sample(n_lines))
+        print("")
+
+
+
