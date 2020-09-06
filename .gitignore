@@ -1,5 +1,6 @@
 # Added specifically for this project
 Notebook_for_tests.ipynb
+helper_for_tests.py
 /Embeddings/Books
 /Embeddings/Saved_Embeddings/glove_lookup
 /Embgeddings/Saved_Variables/closest_emojis_list.pkl
