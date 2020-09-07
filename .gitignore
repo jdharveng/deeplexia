@@ -3,11 +3,7 @@ Notebook_for_tests.ipynb
 helper_for_tests.py
 /Embeddings/Books
 /Embeddings/Saved_Embeddings/glove_lookup
-/Embeddings/Saved_Variables/closest_emojis_list.pkl
-/Embeddings/Saved_Variables/improved_dataset.pkl
-/Embeddings/Saved_Variables/saved_status.pkl
-/Embeddings/Saved_Variables/saved_status.pkl
-/Embeddings/Saved_Variables/sub_sentence_list.pkl
+/Embeddings/Saved_Variables/*.pkl
 
 .idea/
 .DS_Store
