@@ -49,9 +49,9 @@ for i, emojis in enumerate(list_emojis[N:]):
     if answer == 'f':
       chosen_emoji.append(emojis[0])
 
-      if i > 10:
-        print(chosen_emoji)
-        break
+
+
+
 
     elif answer == 'o':
       print("Enter a number between 0 and ", len(emojis)-1, "indicating which emoji you want to keep")
