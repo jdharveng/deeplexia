@@ -5,7 +5,6 @@ helper_for_tests.py
 /Embeddings/Saved_Embeddings/glove_lookup
 /Embeddings/Saved_Variables/*.pkl
 
-
 .idea/
 .DS_Store
 
