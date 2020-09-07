@@ -1,7 +1,7 @@
 # Added specifically for this project
 /Embeddings/Books
 /Embeddings/Saved_Embeddings/glove_lookup
-/Embgeddings/Saved_Variables/*.pkl
+/Embeddings/Saved_Variables/*.pkl
 Notebook_for_tests.ipynb
 .idea/
 .DS_Store
