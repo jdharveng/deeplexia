@@ -1,1 +1,0 @@
-curl -i -H "Content-Type: application/json" -X POST -d '{"text": "Aladdin wanted to find the rubies in the cave"}' http://localhost:5000/emojis
