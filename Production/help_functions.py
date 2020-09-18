@@ -12,6 +12,7 @@ from numpy.core._exceptions import UFuncTypeError
 
 nlp = spacy.load('en_core_web_lg')
 porter = PorterStemmer()
+list_names = joblib.load('list_names.pkl')
 emoji_symb2emb_dic = joblib.load('weighted_emoji_symb2emb_dic.pkl')
 glove_lookup = joblib.load('glove_lookup')
 
@@ -38,8 +39,10 @@ def some_preprocessing(description):
    # Removing stopwords
    stops = set(stopwords.words("english"))
    without_stopwords = [w for w in token_words if not w in stops]
+   # Removing first names
+   without_first_names = [w for w in without_stopwords if not w in list_names]
    # Stemming the Words
-   stemmed_words = [porter.stem(w) for w in without_stopwords]
+   stemmed_words = [porter.stem(w) for w in without_first_names]
    return stemmed_words
 
 def avg_glove_vector(descr_list):
