@@ -14,6 +14,7 @@ nlp = spacy.load('en_core_web_lg')
 porter = PorterStemmer()
 list_names = joblib.load('list_names.pkl')
 emoji_symb2emb_dic = joblib.load('weighted_emoji_symb2emb_dic.pkl')
+name_emoji_symb2emb_dic = joblib.load('name_emoji_symb2emb_dic.pkl')
 glove_lookup = joblib.load('glove_lookup')
 
 def some_preprocessing(description):
@@ -91,7 +92,7 @@ def avg_glove_vector(descr_list):
    else:
       return avg_vector / n_vectors
 
-def find_closest_emoji_emb(sentence):
+def find_closest_emoji_emb(sentence, emoji_symb2emb_dic=emoji_symb2emb_dic):
    '''
      Returns a sorted list (Descending Order) with the closest Emoji to the sentence
 
@@ -142,7 +143,7 @@ def translate_text(file):
    '''
 
    spacy_nlp_file = nlp(file)
-   emoji_translation = ""
+   emoji_translation = "\n"
    for sentence in spacy_nlp_file.sents:
       emoji_translation += str(sentence)
       closest_emojis = find_closest_emoji_emb(str(sentence))
@@ -176,13 +177,13 @@ def translate_by_keywords(file):
    '''
 
    spacy_nlp_file = nlp(file)
-   emoji_text = ""
+   emoji_text = "\n"
    for sentence in spacy_nlp_file.sents:
       emoji_sentence = str(sentence)
       for token in sentence:
          token_pos = token.pos_
          if token_pos == 'PROPN' or token_pos == 'NOUN':
-            closest_emojis = find_closest_emoji_emb(str(token))
+            closest_emojis = find_closest_emoji_emb(str(token),name_emoji_symb2emb_dic)
             if len(closest_emojis) > 0:
                emoji_sentence = emoji_sentence + "   " + closest_emojis[0]
 
