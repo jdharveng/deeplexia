@@ -11,6 +11,6 @@ Deeplexia is an application developed as a reading, learning and speed reading t
 
 https://giphy.com/gifs/NFA61GS9qKZ68/html5
 
-1. We scraped https://emojipedia.org to obtain descriptions of emojis and use this to create Emoji Embeddings. Find the code for this in the Emojipedia folder https://github.com/jdharveng/deeplexia/tree/dev/Emojipedia. 
+1. We scraped https://emojipedia.org to obtain descriptions of emojis and use this to create Emoji Embeddings. Find the code for this in the [Emojipedia folder](Emojipedia).
 
 2. https://github.com/jdharveng/deeplexia/blob/dev/Embeddings/I.Text2Emoji.ipynb 
