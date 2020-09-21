@@ -9,7 +9,7 @@ Deeplexia is an application developed as a reading, learning and speed reading t
 
 1. We scraped https://emojipedia.org to obtain descriptions of emojis and use this to create Emoji Embeddings. Find the code for this in [Emojipedia](Emojipedia).
 
-2. [I.Text2Emoji.ipynb](Embeddings/I.Text2Emoji.ipynb) is the first experiment using spacy 'en_core_web_lg' to directly compute the similarity between Emoji description and nouns of children's book.
+2. [I.Text2Emoji.ipynb](Embeddings/I.Text2Emoji.ipynb) is the first experiment using spacy 'en_core_web_lg' to directly compute the similarity between Emoji description and nouns of children's books.
 
 3. In [II.EmojiCluster.ipynb](Embeddings/II.EmojiCluster.ipynb) you can find the code to get a Emoji Embedding using the average of Glove word vectors for each of words in the emoji description. We used this averaging method to get setence embeddings and compute cosine similarities. T-SNE is used to plot the emoji embedding vectors. Cluster analysis is performed using K-means and the emoji categories in preparation for input into a classfier. [III.OtherEmbeddings.ipynb](Embeddings/III.OtherEmbeddings.ipynb) contains experiments with spacmoji and Zalando Flair Transformers.
 
