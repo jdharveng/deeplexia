@@ -1,5 +1,6 @@
 # Deeplexia
-website 
+
+check it out at https://www.deeplexia.com
 
 ## Motivation
 
