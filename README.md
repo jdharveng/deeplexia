@@ -9,8 +9,9 @@ Deeplexia is an application developed as a reading, learning and speed reading t
 
 ## Process
 
-https://giphy.com/gifs/NFA61GS9qKZ68/html5
+<iframe src="https://giphy.com/embed/NFA61GS9qKZ68" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/reading-dot-strategies-NFA61GS9qKZ68">via GIPHY</a></p>
 
 1. We scraped https://emojipedia.org to obtain descriptions of emojis and use this to create Emoji Embeddings. Find the code for this in the [Emojipedia folder](Emojipedia).
 
-2. https://github.com/jdharveng/deeplexia/blob/dev/Embeddings/I.Text2Emoji.ipynb 
+2. [I.Text2Emoji.ipynb](Embeddings/I.Text2Emoji.ipynb) is the first experiment using spacy 'en_core_web_lg' to directly compute the similarity between Emoji description and nouns of children's book
+
