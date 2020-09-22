@@ -1,20 +1,25 @@
-import numpy as np
 import joblib
+import numpy as np
+import pickle
 from scipy import spatial
+from scipy import spatial
+import spacy
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from numpy.core._exceptions import UFuncTypeError
 import en_core_web_sm
-import gdown
 
+#import gdown
 #url = 'https://drive.google.com/uc?id=1NiEvwVxu9eDYF7m5AdEZV0gopaqRB-7u&export=download'
 #output = 'glove_lookup'
 #gdown.download(url, output)
 
 nlp = en_core_web_sm.load()
 porter = PorterStemmer()
+list_names = joblib.load('list_names.pkl')
 emoji_symb2emb_dic = joblib.load('weighted_emoji_symb2emb_dic.pkl')
+name_emoji_symb2emb_dic = joblib.load('name_emoji_symb2emb_dic.pkl')
 glove_lookup = joblib.load('glove_lookup')
 
 def some_preprocessing(description):
@@ -40,8 +45,10 @@ def some_preprocessing(description):
    # Removing stopwords
    stops = set(stopwords.words("english"))
    without_stopwords = [w for w in token_words if not w in stops]
+   # Removing first names
+   without_first_names = [w for w in without_stopwords if not w in list_names]
    # Stemming the Words
-   stemmed_words = [porter.stem(w) for w in without_stopwords]
+   stemmed_words = [porter.stem(w) for w in without_first_names]
    return stemmed_words
 
 def avg_glove_vector(descr_list):
@@ -90,7 +97,7 @@ def avg_glove_vector(descr_list):
    else:
       return avg_vector / n_vectors
 
-def find_closest_emoji_emb(sentence):
+def find_closest_emoji_emb(sentence, emoji_symb2emb_dic=emoji_symb2emb_dic):
    '''
      Returns a sorted list (Descending Order) with the closest Emoji to the sentence
 
@@ -141,7 +148,7 @@ def translate_text(file):
    '''
 
    spacy_nlp_file = nlp(file)
-   emoji_translation = ""
+   emoji_translation = "\n"
    for sentence in spacy_nlp_file.sents:
       emoji_translation += str(sentence)
       closest_emojis = find_closest_emoji_emb(str(sentence))
@@ -175,13 +182,13 @@ def translate_by_keywords(file):
    '''
 
    spacy_nlp_file = nlp(file)
-   emoji_text = ""
+   emoji_text = "\n"
    for sentence in spacy_nlp_file.sents:
       emoji_sentence = str(sentence)
       for token in sentence:
          token_pos = token.pos_
          if token_pos == 'PROPN' or token_pos == 'NOUN':
-            closest_emojis = find_closest_emoji_emb(str(token))
+            closest_emojis = find_closest_emoji_emb(str(token),name_emoji_symb2emb_dic)
             if len(closest_emojis) > 0:
                emoji_sentence = emoji_sentence + "   " + closest_emojis[0]
 
