@@ -16,4 +16,4 @@ https://www.deeplexia.com
 
 > 4. [TensorFlowHub](Embeddings/TensorFlowHub) and [LSTMs](Embeddings/LSTMs) contain examples of training a classifier with the emoji description to predict the emoji category with data-augmentation. This is then tested on sentences from children's books. [choose_best_emoji.py](Embeddings/choose_best_emoji.py) is a script that can be used to perform the manual data labelling required to get more data to produce better results with classifiers.
 
-5. [Production](Production) contains the files needed to run a heroku or pythonanywhere web app.
+> 5. [Production](Production) contains the files needed to run a heroku or pythonanywhere web app.
